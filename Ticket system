@@ -1,0 +1,40 @@
+from random import randint
+class flight():
+    all = (range(1250,1301))
+    booked= set()
+    def book(self):
+        a= int(input("\nenter book nukmber: "))
+        if a<1250 or a>1301 :
+            print(f"enter correct btw 1200, 1500")
+        elif a in flight.booked:
+            print("its already booked")
+        else:
+            if a not in flight.booked:
+                b=flight.booked.add(a)
+                print(f"Your seat number is: {a}")
+    def avail(self):
+        c= list (set(flight.all) - set(flight.booked))
+        print(f"\n booked seats are :{sorted(flight.booked)}\n Available seats are :{sorted(c)}" )
+
+    def fare(self):
+        d=[]
+        for seat in flight.all :
+            if 1250 <=  seat <=1270:
+                d.append(seat)
+        print(f"\nthe fare of seats {d} is 5000")
+
+        e=[]
+        for seat in flight.all:
+            if 1271 <=  seat <=1301:
+                e.append(seat)
+        print(f"\n the fare of seats {d} is 6000")
+
+c=flight()
+c.book()
+c.avail()
+c.fare()
+
+d=flight()
+d.book()
+d.avail()
+d.fare()
